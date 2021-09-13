@@ -2,8 +2,8 @@ package ca_bundle
 
 import (
 	"fmt"
+	"io/ioutil"
 	"log"
-	"os"
 	"os/exec"
 	"path/filepath"
 	"strings"
@@ -101,7 +101,7 @@ func stopTheAgent() {
 }
 
 func readTheOutputLog() bool {
-	logFile, err := os.ReadFile((outputLog))
+	logFile, err := ioutil.ReadFile(outputLog)
 	if err != nil {
 		log.Fatal(err)
 	}

@@ -32,7 +32,7 @@ func TestBundle(t *testing.T) {
 	parameters := []input{
 		{dataInput: "resources/integration/ssl/with/combine/bundle", findTarget: false},
 		{dataInput: "resources/integration/ssl/with/original/bundle", findTarget: true},
-		{dataInput: "resources/integration/ssl/with/without/bundle", findTarget: true},
+		{dataInput: "resources/integration/ssl/without/bundle", findTarget: true},
 	}
 
 	for _, parameter := range parameters {

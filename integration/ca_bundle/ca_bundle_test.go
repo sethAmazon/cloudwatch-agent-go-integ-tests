@@ -56,7 +56,7 @@ func TestBundle(t *testing.T) {
 
 func clearLogFile() {
 	cmd := exec.Command("bash", "sudo rm " + outputLog + " && sudo cat > " + outputLog)
-
+	log.Printf("Run clear log file")
 	err := cmd.Run()
 	if err != nil {
 		log.Fatal(err)

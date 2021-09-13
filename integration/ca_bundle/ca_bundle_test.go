@@ -18,7 +18,7 @@ const commonConfigTOML = "/common-config.toml"
 const outputLog = "/opt/aws/amazon-cloudwatch-agent/logs/amazon-cloudwatch-agent.log"
 const targetString = "x509: certificate signed by unknown authority"
 //Let the agent run for 1 minutes. This will give agent enough time to call server
-const agentRuntime = 60000
+const agentRuntime = 1
 
 
 type input struct {
@@ -43,7 +43,7 @@ func TestBundle(t *testing.T) {
 			copyFile(parameter.dataInput +configJSON, configOutputPath)
 			copyFile(parameter.dataInput +commonConfigTOML, commonConfigOutputPath)
 			startTheAgent();
-			time.Sleep(agentRuntime * time.Second);
+			time.Sleep(agentRuntime * time.Minute);
 			log.Printf("Agent has been running for : %d", agentRuntime);
 			stopTheAgent();
 			containsTarget := readTheOutputLog()

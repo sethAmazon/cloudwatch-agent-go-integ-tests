@@ -1,0 +1,1 @@
+# cloudwatch-agent-go-integ-tests

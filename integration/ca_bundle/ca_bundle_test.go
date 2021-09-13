@@ -66,6 +66,7 @@ func clearLogFile() {
 }
 
 func copyFile(pathIn string, pathOut string) {
+	log.Printf("Copy File %s to %s", pathIn, pathOut)
 	pathInAbs, err := filepath.Abs(pathIn)
 	if err != nil {
 		log.Fatal(err)

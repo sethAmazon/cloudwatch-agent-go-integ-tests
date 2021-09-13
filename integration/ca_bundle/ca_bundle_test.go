@@ -55,7 +55,7 @@ func TestBundle(t *testing.T) {
 }
 
 func clearLogFile() {
-	cmd := exec.Command("bash", "sudo rm " + outputLog + " && sudo cat > " + outputLog)
+	cmd := exec.Command("bash", "-c", "sudo rm " + outputLog + " && sudo cat > " + outputLog)
 	log.Printf("Run clear log file")
 	err := cmd.Run()
 	if err != nil {
@@ -71,7 +71,7 @@ func copyFile(pathIn string, pathOut string) {
 	if err != nil {
 		log.Fatal(err)
 	}
-	cmd := exec.Command("bash", "sudo cp " + pathInAbs + " " + pathOut)
+	cmd := exec.Command("bash", "-c", "sudo cp " + pathInAbs + " " + pathOut)
 	err = cmd.Run()
 	if err != nil {
 		log.Fatal(err)
@@ -80,7 +80,7 @@ func copyFile(pathIn string, pathOut string) {
 }
 
 func startTheAgent() {
-	cmd := exec.Command("bash", "sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a " +
+	cmd := exec.Command("bash", "-c", "sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a " +
 		"fetch-config -m ec2 -s -c file:" +
 		configOutputPath)
 	err := cmd.Run()
@@ -92,7 +92,7 @@ func startTheAgent() {
 }
 
 func stopTheAgent() {
-	cmd := exec.Command("bash", "sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a stop")
+	cmd := exec.Command("bash", "-c", "sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a stop")
 	err := cmd.Run()
 	if err != nil {
 		log.Fatal(err)

@@ -21,4 +21,4 @@
 #    no_proxy = "{domain}"
 
  [ssl]
-    ca_bundle_path = "/home/ubuntu/localstack/ls_tmp/original.pem"
+    ca_bundle_path = "/home/ubuntu/cloudwatch-agent-go-integ-tests/localstack/ls_tmp/original.pem"
